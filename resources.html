@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WOMANIYA – Resources</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #fff7fb; }
+    .panel { 
+      background: #fff; 
+      padding: 20px; 
+      border-radius: 15px; 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    .form label { display: block; margin-bottom: 10px; }
+    .form input, .form textarea { width: 100%; padding: 8px; margin-top: 4px; border-radius: 6px; border: 1px solid #ccc; }
+    .btn { padding: 10px 16px; margin-top: 10px; border: none; border-radius: 6px; cursor: pointer; }
+    .btn.primary { background: #e75480; color: #fff; }
+    .btn.danger { background: #ff4d4d; color: #fff; }
+    .btn.delete { background: #ff8080; color: #fff; margin-left: 10px; font-size: 0.85em; }
+    .list .entry { border-bottom: 1px solid #eee; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; }
+    .list .entry h3 { margin: 0; color: #e75480; }
+    .list .entry p { margin: 5px 0 0; flex: 1; }
+    .grid { display: flex; gap: 20px; flex-wrap: wrap; }
+    .two-col > .panel { flex: 1 1 45%; }
+
+    /* Wellness Info Section */
+    .wellness-info {
+      background: linear-gradient(135deg, #fdeff7, #fff0f8);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      margin-bottom: 30px;
+    }
+    .wellness-info h2 {
+      color: #e75480;
+      margin-bottom: 15px;
+    }
+    .wellness-info ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 15px;
+    }
+    .wellness-info li {
+      margin-bottom: 8px;
+      padding-left: 25px;
+      position: relative;
+    }
+    .wellness-info li::before {
+      content: "💬";
+      position: absolute;
+      left: 0;
+    }
+    .wellness-info p.tip {
+      font-style: italic;
+      color: #a83263;
+    }
+  </style>
+</head>
+<body class="theme-soft">
+  <header class="site-header">
+    <div class="logo">💖 WOMANIYA</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="tracker.html">Period tracker</a>
+      <a href="symptoms.html">Symptoms guide</a>
+      <a href="wellness.html">Sleep & diet</a>
+      <a href="resources.html" class="active">Resources</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro calm-gradient">
+      <h1>Gentle supports and tools</h1>
+      <p>Save notes, plan small actions, and find information to feel more prepared.</p>
+    </section>
+
+    <!-- Wellness & Support Info -->
+    <section class="wellness-info">
+      <h2>🌸 Period Wellness & Emotional Support</h2>
+      <p>Your cycle is not just physical—it's emotional too. Talking to someone you trust during your period can help:</p>
+      <ul>
+        <li>🌿 Reduce stress and anxiety</li>
+        <li>💗 Ease mood swings and PMS symptoms</li>
+        <li>📝 Encourage healthy journaling and self-reflection</li>
+        <li>🤝 Build a support system and feel understood</li>
+      </ul>
+      <p>Remember, acknowledging your emotions and reaching out can make a meaningful difference in how you feel each month. Your feelings are valid, and support is always available.</p>
+      <p class="tip"><strong>Tip:</strong> Try combining talking with journaling. Writing down feelings first can make sharing with someone even easier.</p>
+    </section>
+
+    <section class="grid two-col">
+      <!-- Cycle Journal -->
+      <div class="panel">
+        <h2>Cycle journaling</h2>
+        <form id="journalForm" class="form">
+          <label>
+            <span>Title</span>
+            <input type="text" id="journalTitle" placeholder="e.g., Day 1 feelings"/>
+          </label>
+          <label>
+            <span>Notes</span>
+            <textarea id="journalBody" rows="6" placeholder="Free-write for a few minutes..."></textarea>
+          </label>
+          <button class="btn primary" type="submit">Save entry</button>
+        </form>
+
+        <div id="journalList" class="list"></div>
+        <button class="btn danger" id="clearJournalBtn">Clear all journal entries</button>
+      </div>
+
+      <!-- Personal Reminders -->
+      <div class="panel">
+        <h2>Personal reminders</h2>
+        <form id="reminderForm" class="form">
+          <label>
+            <span>Reminder text</span>
+            <input type="text" id="reminderText" placeholder="e.g., Pack a heating pad"/>
+          </label>
+          <label>
+            <span>Date & time</span>
+            <input type="datetime-local" id="reminderDateTime"/>
+          </label>
+          <button class="btn primary" type="submit">Add reminder</button>
+        </form>
+        <div id="remindersList" class="list"></div>
+        <button class="btn danger" id="clearReminderBtn">Clear all reminders</button>
+        <p class="note">REMINDER TO BE HYDRATED AS WELL AS LOOK BEAUTIFUL!!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>PERIODS ARE NOT A PROBLE..THE PEOPLE LIVING AROUND YOU MIGHT BE!! ;).</p>
+  </footer>
+
+  <script>
+    // -------------------- CYCLE JOURNAL --------------------
+    const journalForm = document.getElementById('journalForm');
+    const journalTitle = document.getElementById('journalTitle');
+    const journalBody = document.getElementById('journalBody');
+    const journalList = document.getElementById('journalList');
+    const clearJournalBtn = document.getElementById('clearJournalBtn');
+
+    function loadJournal() {
+      const entries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+      journalList.innerHTML = '';
+      entries.forEach((entry, index) => {
+        const div = document.createElement('div');
+        div.classList.add('entry');
+        div.innerHTML = `
+          <div>
+            <h3>${entry.title}</h3>
+            <p>${entry.body}</p>
+          </div>
+          <button class="btn delete" data-index="${index}">Delete</button>
+        `;
+        journalList.appendChild(div);
+      });
+
+      document.querySelectorAll('.entry .delete').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = btn.getAttribute('data-index');
+          deleteJournalEntry(idx);
+        });
+      });
+    }
+
+    function deleteJournalEntry(index) {
+      const entries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+      entries.splice(index, 1);
+      localStorage.setItem('journalEntries', JSON.stringify(entries));
+      loadJournal();
+    }
+
+    journalForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const title = journalTitle.value.trim();
+      const body = journalBody.value.trim();
+      if (!title || !body) return alert("Please enter both title and notes.");
+      const entries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+      entries.push({ title, body });
+      localStorage.setItem('journalEntries', JSON.stringify(entries));
+      journalTitle.value = '';
+      journalBody.value = '';
+      loadJournal();
+    });
+
+    clearJournalBtn.addEventListener('click', () => {
+      if (confirm("Are you sure you want to clear all journal entries?")) {
+        localStorage.removeItem('journalEntries');
+        loadJournal();
+      }
+    });
+
+    // -------------------- PERSONAL REMINDERS --------------------
+    const reminderForm = document.getElementById('reminderForm');
+    const reminderText = document.getElementById('reminderText');
+    const reminderDateTime = document.getElementById('reminderDateTime');
+    const remindersList = document.getElementById('remindersList');
+    const clearReminderBtn = document.getElementById('clearReminderBtn');
+
+    function loadReminders() {
+      const reminders = JSON.parse(localStorage.getItem('reminders')) || [];
+      remindersList.innerHTML = '';
+      reminders.forEach((reminder, index) => {
+        const div = document.createElement('div');
+        div.classList.add('entry');
+        div.innerHTML = `
+          <div>
+            <h3>${reminder.text}</h3>
+            <p>${reminder.dateTime}</p>
+          </div>
+          <button class="btn delete" data-index="${index}">Delete</button>
+        `;
+        remindersList.appendChild(div);
+      });
+
+      document.querySelectorAll('#remindersList .delete').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = btn.getAttribute('data-index');
+          deleteReminder(idx);
+        });
+      });
+    }
+
+    function deleteReminder(index) {
+      const reminders = JSON.parse(localStorage.getItem('reminders')) || [];
+      reminders.splice(index, 1);
+      localStorage.setItem('reminders', JSON.stringify(reminders));
+      loadReminders();
+    }
+
+    reminderForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const text = reminderText.value.trim();
+      const dateTime = reminderDateTime.value;
+      if (!text || !dateTime) return alert("Please enter both reminder text and date/time.");
+      const reminders = JSON.parse(localStorage.getItem('reminders')) || [];
+      reminders.push({ text, dateTime });
+      localStorage.setItem('reminders', JSON.stringify(reminders));
+      reminderText.value = '';
+      reminderDateTime.value = '';
+      loadReminders();
+    });
+
+    clearReminderBtn.addEventListener('click', () => {
+      if (confirm("Are you sure you want to clear all reminders?")) {
+        localStorage.removeItem('reminders');
+        loadReminders();
+      }
+    });
+
+    // -------------------- INIT --------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      loadJournal();
+      loadReminders();
+    });
+  </script>
+</body>
+</html>

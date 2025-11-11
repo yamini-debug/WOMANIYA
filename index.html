@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WOMANIYA – Home</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><text y=%22.9em%22 font-size=%2216%22>💖</text></svg>">
+  <link rel="stylesheet" href="assets/styles.css"/>
+  <style>
+    body.theme-soft {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff7fb;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #e75480;
+      font-weight: 500;
+    }
+    .nav a.active {
+      font-weight: 700;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(120deg, #ffe6f0, #f9f0ff);
+      overflow: hidden;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      color: #e75480;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin-bottom: 30px;
+    }
+    .hero-actions .btn {
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 0 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-block;
+    }
+    .hero-actions .btn.primary {
+      background: #e75480;
+      color: #fff;
+      border: none;
+    }
+    .hero-actions .btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(231,84,128,0.3);
+    }
+    .hero-actions .btn.outline {
+      background: transparent;
+      color: #e75480;
+      border: 2px solid #e75480;
+    }
+    .hero-actions .btn.outline:hover {
+      background: #e75480;
+      color: #fff;
+    }
+
+    /* Floating emojis */
+    .floating-emoji {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0.8;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* CARDS */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 60px 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      flex: 1 1 300px;
+      max-width: 320px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+    .card h3 {
+      color: #e75480;
+      margin-bottom: 12px;
+      font-size: 1.5rem;
+    }
+    .card p {
+      color: #4b5563;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    .card .btn.link {
+      background: #f9f0ff;
+      border: 1px solid #e75480;
+      color: #e75480;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .card .btn.link:hover {
+      background: #e75480;
+      color: #fff;
+    }
+
+    /* CTA */
+    .cta.gentle {
+      background: #ffe6f0;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .cta.gentle h2 {
+      color: #e75480;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .cta.gentle p {
+      color: #4b5563;
+      margin-bottom: 25px;
+    }
+
+    canvas#heartsCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="theme-soft">
+  <header class="site-header">
+    <div class="logo">💖 WOMANIYA</div>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="tracker.html">Period tracker</a>
+      <a href="symptoms.html">Symptoms guide</a>
+      <a href="wellness.html">Sleep & diet</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero calm-gradient">
+      <div class="hero-content">
+        <h1>Gentle tools for your cycle, body, and mind</h1>
+        <p>Track your period, get reminders, learn how to support yourself through symptoms, and find calming, science-backed tips.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="tracker.html">Start tracking</a>
+          <a class="btn outline" href="wellness.html">Explore wellness</a>
+        </div>
+      </div>
+      <canvas id="heartsCanvas" aria-hidden="true"></canvas>
+
+      <!-- Floating emojis -->
+      <div class="floating-emoji" style="left:10%;">🌸</div>
+      <div class="floating-emoji" style="left:25%;">💅</div>
+      <div class="floating-emoji" style="left:40%;">👗</div>
+      <div class="floating-emoji" style="left:55%;">🩺</div>
+      <div class="floating-emoji" style="left:70%;">💖</div>
+      <div class="floating-emoji" style="left:85%;">🌸</div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <h3>Period tracker</h3>
+        <p>Log cycle dates, predict the next period, and set gentle reminders and notifications.</p>
+        <a class="btn link" href="tracker.html">Open tracker</a>
+      </article>
+
+      <article class="card">
+        <h3>Symptoms guide</h3>
+        <p>Understand common period symptoms and self-care steps. Know when to seek a gynecologist’s advice.</p>
+        <a class="btn link" href="symptoms.html">Read guide</a>
+      </article>
+
+      <article class="card">
+        <h3>Sleep & diet</h3>
+        <p>Learn the benefits of good sleep and nourishing foods for energy, mood, and hormonal balance.</p>
+        <a class="btn link" href="wellness.html">Improve wellness</a>
+      </article>
+    </section>
+
+    <section class="cta gentle">
+      <h2>Your rhythm, supported</h2>
+      <p>Set reminders for upcoming phases and create a ritual that feels caring and doable.</p>
+      <button class="btn primary" id="enableNotificationsBtn">Enable notifications</button>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="text-align:center; padding:30px; color:#9ca3af;">
+    <p>💖 Made with care by Yamini</p>
+  </footer>
+
+  <script src="assets/script.js"></script>
+  <script>
+    // Hearts animation
+    function initFallingHearts(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const hearts = [];
+      const heartChars = ['💖', '🌸', '💅', '👗', '🩺'];
+
+      for(let i=0;i<50;i++){
+        hearts.push({
+          x: Math.random()*canvas.width,
+          y: Math.random()*canvas.height,
+          char: heartChars[Math.floor(Math.random()*heartChars.length)],
+          size: Math.random()*24+12,
+          speed: Math.random()*1+0.5,
+          swing: Math.random()*2+1,
+          angle: Math.random()*2*Math.PI
+        });
+      }
+
+      function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        hearts.forEach(h=>{
+          ctx.font = `${h.size}px serif`;
+          ctx.fillText(h.char,h.x,h.y);
+          h.y -= h.speed;
+          h.x += Math.sin(h.angle)*h.swing*0.5;
+          h.angle += 0.02;
+          if(h.y< -50) h.y = canvas.height+50;
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    function attachNotificationEnable(btnId){
+      const btn = document.getElementById(btnId);
+      btn.addEventListener('click', ()=>{
+        if(Notification.permission === 'granted'){
+          alert('Notifications already enabled!');
+        } else {
+          Notification.requestPermission().then(p=>{
+            if(p==='granted') alert('Notifications enabled!');
+          });
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initFallingHearts('heartsCanvas');
+      attachNotificationEnable('enableNotificationsBtn');
+    });
+
+    window.addEventListener('resize', () => {
+      const canvas = document.getElementById('heartsCanvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>

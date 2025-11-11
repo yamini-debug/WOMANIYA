@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soulful Support – Contact</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+</head>
+<body class="theme-soft">
+  <header class="site-header">
+    <div class="logo">💖 WOMANIYA</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="tracker.html">Period tracker</a>
+      <a href="symptoms.html">Symptoms guide</a>
+      <a href="wellness.html">Sleep & diet</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro calm-gradient">
+      <h1>Say hello</h1>
+      <p>Share feedback or ideas. We love making these tools more supportive.</p>
+    </section>
+
+    <section class="single-col panel">
+      <form id="contactForm" class="form">
+        <label>
+          <span>Name</span>
+          <input type="text" id="contactName" placeholder="Your name"/>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" id="contactEmail" placeholder="you@example.com"/>
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea id="contactMessage" rows="6" placeholder="What would you like to share?"></textarea>
+        </label>
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+      <div id="contactStatus" class="note"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Thanks for being here. Your voice matters.</p>
+  </footer>
+
+  <script src="assets/script.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => initContactForm());
+  </script>
+</body>
+</html>

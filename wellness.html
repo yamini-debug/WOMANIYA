@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WOMANIYA – Period Wellness</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+  <style>
+    body.theme-soft {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff7fb;
+    }
+
+    .page-intro {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(120deg, #ffe6f0, #f9f0ff);
+    }
+
+    h1, h2, h3 {
+      color: #e75480;
+    }
+
+    section.grid.two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .panel {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .panel:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.12);
+    }
+
+    ul.tips {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .info-section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .info-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .info-buttons button {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .info-buttons button:hover {
+      background: #e6003c;
+    }
+
+    .info-content {
+      display: none;
+      background: #fff0f3;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .info-content a {
+      color: #e75480;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="theme-soft">
+  <header class="site-header">
+    <div class="logo">💖 WOMANIYA</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="tracker.html">Period tracker</a>
+      <a href="symptoms.html">Symptoms guide</a>
+      <a href="wellness.html" class="active">Sleep & diet</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro calm-gradient">
+      <h1>Period Wellness: Sleep, Diet, and Uterus Health</h1>
+      <p>Learn about nourishing your body, understanding period-related conditions, and supporting reproductive health.</p>
+    </section>
+
+    <!-- Sleep & Diet -->
+    <section class="grid two-col">
+      <div class="panel">
+        <h2>Benefits of Good Sleep</h2>
+        <ul class="tips">
+          <li><strong>Mood support:</strong> More stable emotions and stress resilience.</li>
+          <li><strong>Energy balance:</strong> Better daytime alertness and reduced fatigue.</li>
+          <li><strong>Hormonal rhythm:</strong> Consistent routines support natural cycles.</li>
+          <li><strong>Pain tolerance:</strong> Rest can help you cope with cramps and discomfort.</li>
+        </ul>
+        <h3>Gentle Sleep Habits</h3>
+        <ul class="tips">
+          <li><strong>Wind-down:</strong> Dim lights, reduce screens 30–60 minutes before bed.</li>
+          <li><strong>Consistency:</strong> Regular sleep/wake times anchor your rhythm.</li>
+          <li><strong>Comfort:</strong> Cozy bedding and a peaceful room temperature.</li>
+          <li><strong>Breath:</strong> Slow breathing or short guided relaxation.</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>Benefits of a Balanced Diet</h2>
+        <ul class="tips">
+          <li><strong>Steady energy:</strong> Mix complex carbs, protein, and healthy fats.</li>
+          <li><strong>Digestion:</strong> Fiber and hydration support comfort, especially around your period.</li>
+          <li><strong>Nutrients:</strong> Colorful fruits/vegetables, legumes, and whole grains add variety.</li>
+          <li><strong>Mood & sleep:</strong> Nourishing meals can support calm and rest.</li>
+        </ul>
+        <h3>Gentle Diet Habits</h3>
+        <ul class="tips">
+          <li><strong>Regular meals:</strong> Smaller, balanced portions to avoid dips.</li>
+          <li><strong>Hydrate:</strong> Water and herbal infusions through the day.</li>
+          <li><strong>Mindful choices:</strong> Tune into foods that feel good for your body.</li>
+          <li><strong>Prep:</strong> Simple batch-cooking for lower-energy days.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Interactive Period Info Section -->
+    <section class="info-section">
+      <h2>Learn About Period-Related Conditions</h2>
+      <p>Click on the topics below to expand information about common menstrual and reproductive health conditions:</p>
+      <div class="info-buttons">
+        <button onclick="toggleInfo('pcos')">PCOS</button>
+        <button onclick="toggleInfo('pcod')">PCOD</button>
+        <button onclick="toggleInfo('endometriosis')">Endometriosis</button>
+        <button onclick="toggleInfo('pregnancy')">Periods & Pregnancy</button>
+      </div>
+
+      <div id="pcos" class="info-content">
+        <h3>Polycystic Ovary Syndrome (PCOS)</h3>
+        <p>PCOS is a hormonal disorder that can affect menstrual cycles, ovulation, fertility, and metabolism.</p>
+        <ul>
+          <li>Symptoms: Irregular periods, excess hair growth, acne, weight gain.</li>
+          <li>Management: Diet, exercise, and sometimes medication can help regulate cycles.</li>
+        </ul>
+        <p>Read more: <a href="https://en.wikipedia.org/wiki/Polycystic_ovary_syndrome" target="_blank">Wikipedia – PCOS</a></p>
+      </div>
+
+      <div id="pcod" class="info-content">
+        <h3>Polycystic Ovary Disease (PCOD)</h3>
+        <p>PCOD refers to multiple cysts in the ovaries, often causing irregular periods and hormonal imbalance.</p>
+        <ul>
+          <li>Symptoms: Menstrual irregularities, weight changes, hair growth, acne.</li>
+          <li>Management: Lifestyle changes, diet, and doctor supervision are recommended.</li>
+        </ul>
+        <p>Read more: <a href="https://en.wikipedia.org/wiki/Polycystic_ovary_disease" target="_blank">Wikipedia – PCOD</a></p>
+      </div>
+
+      <div id="endometriosis" class="info-content">
+        <h3>Endometriosis</h3>
+        <p>Endometriosis occurs when uterine-like tissue grows outside the uterus, causing pain and sometimes fertility issues.</p>
+        <ul>
+          <li>Symptoms: Painful periods, heavy bleeding, chronic pelvic pain.</li>
+          <li>Management: Pain management, hormonal therapy, surgery in severe cases.</li>
+        </ul>
+        <p>Read more: <a href="https://en.wikipedia.org/wiki/Endometriosis" target="_blank">Wikipedia – Endometriosis</a></p>
+      </div>
+
+      <div id="pregnancy" class="info-content">
+        <h3>Periods & Pregnancy</h3>
+        <p>Menstrual cycles change during pregnancy. Missing periods is usually the first sign of pregnancy.</p>
+        <ul>
+          <li>Early Signs: Missed period, fatigue, nausea, tender breasts.</li>
+          <li>During Pregnancy: No menstrual bleeding, hormonal support, and regular check-ups are important.</li>
+        </ul>
+        <p>Read more: <a href="https://en.wikipedia.org/wiki/Pregnancy" target="_blank">Wikipedia – Pregnancy</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>General wellness information. For personal nutrition, sleep, or reproductive health concerns, consult a qualified healthcare professional.</p>
+  </footer>
+
+  <script>
+    // Toggle show/hide info sections
+    function toggleInfo(id) {
+      const section = document.getElementById(id);
+      if (section.style.display === "block") {
+        section.style.display = "none";
+      } else {
+        section.style.display = "block";
+        section.scrollIntoView({behavior: "smooth"});
+      }
+    }
+  </script>
+</body>
+</html>

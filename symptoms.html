@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WOMANIYA – Symptoms guide</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+  <style>
+    body.theme-soft {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff7fb;
+      margin: 0;
+    }
+
+    .page-intro {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(120deg, #ffe6f0, #f9f0ff);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-intro h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .page-intro p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .symptom-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .symptom-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .symptom-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.12);
+    }
+
+    .symptom-card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: #e75480;
+    }
+
+    .symptom-card ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .symptom-card .note {
+      font-style: italic;
+      color: #d148cf;
+    }
+
+    /* Special styling for gynecologist card (FULL PAGE) */
+    .symptom-card.gyno {
+      border-top: 4px solid #03c3f3;
+      background: #fff0f3;
+      color: #c391a2;
+
+      /* Make it full-width and full-height */
+      grid-column: 1 / -1; /* span all columns */
+      width: 100%;
+      max-width: 100%;
+      padding: 50px 40px;
+      min-height: 50vh; /* optionally full viewport height */
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      border-radius: 3; /* optional, makes it fully rectangular */
+    }
+
+    .symptom-card.gyno h3 {
+      color: #0c3853;
+      font-size: 2rem;
+    }
+
+    /* 3D falling hearts animation */
+    #heartsContainer {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      perspective: 1000px;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      color: #ff5b7e;
+      animation: fall 8s linear infinite;
+      transform-style: preserve-3d;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translate3d(var(--x,0px), -50px, var(--z,0px)) rotateY(0deg) rotateX(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate3d(var(--x,0px), 120vh, var(--z,0px)) rotateY(360deg) rotateX(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body class="theme-soft">
+  <header class="site-header">
+    <div class="logo">💖WOMANIYA </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="tracker.html">Period tracker</a>
+      <a href="symptoms.html" class="active">Symptoms guide</a>
+      <a href="wellness.html">Sleep & diet</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro calm-gradient">
+      <h1>Understanding your symptoms 💖</h1>
+      <p>Helpful steps for comfort, foods, sleep, movement, coping strategies, and a little humor to brighten your cycle.</p>
+      <div id="heartsContainer"></div>
+    </section>
+
+    <section class="symptom-cards">
+      <div class="symptom-card">
+        <h3>Cramps</h3>
+        <ul>
+          <li><strong>Eat:</strong> Dark chocolate, ginger tea, leafy greens.</li>
+          <li><strong>Do:</strong> Warm bath, gentle stretching, yoga poses.</li>
+          <li><strong>Sleep:</strong> Slightly elevat/stronged legs, cozy blanket, early rest.</li>
+          <li><strong>Hard to accept but </strong>A CUDDLE BUDDY OR NETFLIX ALWAYS HELPS..</li>
+        </ul>
+        <p class="note">Severe pain? Consider consulting a professional.</p>
+      </div>
+
+      <div class="symptom-card">
+        <h3>Bloating</h3>
+        <ul>
+          <li><strong>Eat:</strong> Small frequent meals, high-fiber fruits, herbal teas.</li>
+          <li><strong>Do:</strong> Gentle walk, abdominal massage.</li>
+          <li><strong>Sleep:</strong> Sleep on left side to aid digestion.</li>
+          <li><strong>Humor:</strong> Pretend your belly is a balloon 🎈, let it float!</li>
+        </ul>
+      </div>
+
+      <div class="symptom-card">
+        <h3>Mood changes</h3>
+        <ul>
+          <li><strong>Eat:</strong> Omega-3 rich foods, berries, dark chocolate.</li>
+          <li><strong>Do:</strong> Journaling, meditate, talk to someone you trust.</li>
+          <li><strong>Sleep:</strong> Maintain routine, no screens 30min before bed.</li>
+          <li><strong>Not Helping??</strong> Pamper yourself or get a friend to pamper you 😉</li>
+        </ul>
+      </div>
+
+      <div class="symptom-card">
+        <h3>Fatigue</h3>
+        <ul>
+          <li><strong>Eat:</strong> Protein-rich meals, nuts, hydration.</li>
+          <li><strong>Do:</strong> Short naps, gentle stretching, pacing tasks.</li>
+          <li><strong>Sleep:</strong> Prioritize early bedtime, dark room.</li>
+          <li><strong>HEHE</strong> Pretend you’re a cat napping all day 🐱</li>
+        </ul>
+      </div>
+
+      <!-- Gynecologist advice card (full page) -->
+      <div class="symptom-card gyno">
+        <h3>When to Seek a Gynecologist’s Advice </h3>
+        <ul>
+          <li><strong>Very heavy bleeding:</strong> Soaking pads/tampons quickly or large clots.</li>
+          <li><strong>Severe pain:</strong> Pain that doesn't improve with rest, heat, or OTC medicine.</li>
+          <li><strong>Irregular cycles:</strong> Significant changes in timing or missed periods not explained by lifestyle changes.</li>
+          <li><strong>Persistent symptoms:</strong> Ongoing discomfort, bloating, mood swings, or fatigue that affect daily life.</li>
+        </ul>
+        <p class="note">This card MAY help you..but obviously someone caring for you would be better..;)</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>General information only. Your health matters—seek professional care if you have concerns.</p>
+  </footer>
+
+  <script>
+    // 3D falling hearts
+    function createHearts(count = 30){
+      const container = document.getElementById('heartsContainer');
+      for(let i=0;i<count;i++){
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '💖';
+        heart.style.setProperty('--x', Math.random()*window.innerWidth + 'px');
+        heart.style.setProperty('--z', (Math.random()*600-300) + 'px');
+        heart.style.animationDuration = (5 + Math.random()*5) + 's';
+        heart.style.fontSize = (16 + Math.random()*24) + 'px';
+        heart.style.opacity = Math.random();
+        container.appendChild(heart);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      createHearts(40);
+    });
+  </script>
+</body>
+</html>
